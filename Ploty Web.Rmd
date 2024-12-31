@@ -1,0 +1,69 @@
+---
+title: "Interactive Scatter Plot with Plotly"
+author: "MAK"
+date: "`r Sys.Date()`"
+output: 
+  ioslides_presentation:
+    self_contained: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(plotly)  # Ensure the plotly package is loaded
+data("airquality")
+head(airquality)
+```
+
+## Welcome to the Air Quality Presentation
+
+This presentation features an **interactive scatter plot** using the air quality dataset.
+
+------------------------------------------------------------------------
+
+## Interactive Scatter Plot 1
+
+```{r scatter-plot1, echo=FALSE, results='asis', warning=FALSE}
+# Create a scatter plot with color based on Month
+plot_ly(
+  airquality, 
+  x = ~Temp, 
+  y = ~Ozone, 
+  type = "scatter", 
+  mode = "markers", 
+  color = ~factor(Month)
+)
+```
+
+------------------------------------------------------------------------
+
+## Interactive Scatter Plot 2
+
+```{r scatter-plot2, echo=FALSE, results='asis', warning=FALSE}
+# Create a scatter plot with color and size
+plot_ly(
+  airquality, 
+  x = ~Temp, 
+  y = ~Ozone, 
+  type = "scatter", 
+  mode = "markers", 
+  color = ~factor(Month), 
+  size = ~Solar.R
+)
+
+```
+
+------------------------------------------------------------------------
+
+## Features of the Plot
+
+1.  **Hover Tooltips**: Display Ozone, Temperature, and Month.
+2.  **Color-Coded Points**: Different months are represented by distinct colors.
+3.  **Zoom and Pan**: Dynamically explore regions of interest.
+
+------------------------------------------------------------------------
+
+## Conclusion
+
+This presentation demonstrates how to use **ioslides_presentation** to create an interactive visualization with the Palmer Penguins dataset.
+
+------------------------------------------------------------------------
